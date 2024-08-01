@@ -1,0 +1,8 @@
+# Google Gemini API
+google-generativeai
+
+# Telegram API
+pyTelegramBotAPI
+
+# to handle tokens
+python-dotenv
