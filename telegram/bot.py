@@ -9,6 +9,10 @@ from dotenv import load_dotenv
 from gemini_api.gemini import Chat, Gemini
 from .helpers import *
 
+# optional
+from .keep_alive import keep_alive
+
+
 # Initialisation
 load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -20,6 +24,8 @@ rate_limit_users = {}
 rate_limit_time = datetime.now()
 rate_limit_duration = 60 * 3
 rate_limit_count = 10  # per user
+
+KEEP_ALIVE = True  # requires flask to be installed
 
 ensure_history_dir_exists()
 
@@ -79,5 +85,7 @@ def message_handler(message):
 
 
 def run():
+    if KEEP_ALIVE:
+        keep_alive()
     print("Bot is running")
     bot.infinity_polling()

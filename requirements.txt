@@ -6,3 +6,6 @@ pyTelegramBotAPI
 
 # to handle tokens
 python-dotenv
+
+# OPTIONAL
+flask
